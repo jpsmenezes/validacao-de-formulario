@@ -4,6 +4,9 @@ let B7validator = {
         let send = true;
 
         let inputs = form.querySelectorAll('input');
+
+        B7validator.clearError(); // Limpar os error dos inputs
+
         for (let i = 0; i < inputs.length; i++) {
             let input = inputs[i];
             let check = B7validator.checkInput(input);
@@ -49,6 +52,17 @@ let B7validator = {
         //O método insertBefore () insere um nó como filho, logo antes de um filho existente, que você especifica.
         //A propriedade nextElementSibling retorna o elemento imediatamente após o elemento especificado, no mesmo nível de árvore.
         input.parentElement.insertBefore(errorElement, input.ElementSibling);
+    },
+    clearError: () => {
+        let inputs = form.querySelectorAll('input');
+        for(let i = 0; i < inputs.length; i++){
+            inputs[i].style = '';
+        }
+
+        let errorElement = document.querySelectorAll('.error');
+        for(let i = 0; i < errorElement.length; i++){
+            errorElement[i].remove();
+        }
     }
 };
 
