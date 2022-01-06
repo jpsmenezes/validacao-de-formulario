@@ -9,13 +9,34 @@ let B7validator = {
                      let check = B7validator.checkInput(input);
                      if (check !== true) {
                             send = false;
-                            //exibir o erro
+                            //exibir o erro                           
                      }
-              }
-              send = false;
+              }              
               if (send) {
                      form.submit();
               }
+       },
+       checkInput:(input) => {
+              //O método getAttribute () retorna o valor do atributo com o nome especificado de um elemento.
+              let rules = input.getAttribute('data-rules'); 
+
+              if(rules !== null){
+                     rules = rules.split('|');
+                     for (let k in rules){
+                            let rDetails = rules[k].split('=');
+                            switch(rDetails[0]){
+                                   case 'required':
+                                          if(input.value == ""){
+                                                 return 'Campo Obrigatório'
+                                          }
+                                          break
+                                   case 'min':
+
+                                          break
+                            } 
+                     }
+              }
+              return true;
        }
 };
 
