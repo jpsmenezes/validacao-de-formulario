@@ -35,7 +35,7 @@ let B7validator = {
                         break;
                     case 'min':
                         if(input.value.length < rDetails[1]){
-                            return 'Obrigatório ter ao menos \/* aaaaaaaaaaXXXXXXXXXXXXX */' + rDetails[1] + ' Caracteres';
+                            return 'Obrigatório ter ao menos ' + rDetails[1] + ' Caracteres';
                         }
                         break;
                         case 'email':
