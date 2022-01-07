@@ -32,10 +32,20 @@ let B7validator = {
                         if (input.value == "") {
                             return 'Campo Obrigatório'
                         }
-                        break
+                        break;
                     case 'min':
-
-                        break
+                        if(input.value.length < rDetails[1]){
+                            return 'Obrigatório ter ao menos \/* aaaaaaaaaaXXXXXXXXXXXXX */' + rDetails[1] + ' Caracteres';
+                        }
+                        break;
+                        case 'email':
+                            if(input.value != '') {
+                                let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                                if(!regex.test(input.value.toLowerCase())) {
+                                    return 'E-mail digitado não é válido!';
+                                }
+                            }
+                        break;
                 }
             }
         }
